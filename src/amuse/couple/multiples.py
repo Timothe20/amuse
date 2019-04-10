@@ -694,6 +694,17 @@ class Multiples(object):
                 #io.write_set_to_file((self.before, self.after,self.after_smalln), "multiples-{0}.h5".format(self.number_of_collisions), "amuse", names=('before', 'after', 'after_smalln'), version="2.0", append_to_file=False)
         
                 count_ignore_encounter += ignore
+                
+                ### CUSTIM ###
+                # stop integration after each collision 
+                # that produce a change in multiples list
+                if len(self.before) == len(self.after):
+                    for star1, star1bis in zip(self.before, self.after):
+                        if star1 != star1bis:
+                            break
+                else:
+                    break
+                ###  ---  ###
 
         print ''
         print 'Resolved', count_resolve_encounter, 'encounters'
