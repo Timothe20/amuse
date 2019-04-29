@@ -709,7 +709,7 @@ def LagrangianRadii(stars, unit_converter=None, mf=[0.01,0.02,0.05,0.1,0.2,0.5,0
             lr.append(rsorted[0]/2.)
         else:
             lr.append(rsorted[i-1])
-    return lr,mf
+    return lr, cm
     
 def find_closest_particle_to(particles,x,y,z):
     """
